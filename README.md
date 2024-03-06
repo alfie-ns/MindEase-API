@@ -4,8 +4,9 @@ MindEase is an app designed to support individuals with brain injuries, cognitiv
 
 ### Goals
 
-- [ ] Make users feel and be smart
-- [ ] Personalise for each user with AI(what they like and dislike, perhaps some questions regarding their goals
+- [ ] Make users feel and be smart with AI
+- [ ] Make users feel and be more productive
+- [ ] Personalise for each user with AI, what they like and dislike, perhaps some questions regarding their goals
 
 ## Features
 
