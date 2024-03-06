@@ -28,7 +28,7 @@ MindEase is an app designed to support individuals with brain injuries, cognitiv
 1. [ ] Personal Interests/Entertainment
 1. [ ] Other
 
-[ ] Features voice input for easy setup and categorization options for better organization.
+- [ ] Features voice input for easy setup and categorization options for better organization.
 
 ### Cognitive Games and Exercises [ ]
 
@@ -36,7 +36,7 @@ MindEase is an app designed to support individuals with brain injuries, cognitiv
 - [ ] Track progress and improvement
 - [ ] Cognitive flexibility, memory, attention, problem-solving, etc.
 
-Engage in games and exercises developed with cognitive scientists to enhance memory, attention, problem-solving, and cognitive flexibility, with progress tracking.
+ [Engage in games and exercises developed with cognitive scientists to enhance memory, attention, problem-solving, and cognitive flexibility, with progress tracking.
 
 ### Daily Routine Planner
 
@@ -112,4 +112,5 @@ Summarize YouTube videos for quick information intake, with AI suggestions for o
 ## Support
 
 - [ ] Make support available for users
+
 # MindEase-Dev
