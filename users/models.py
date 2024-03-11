@@ -116,15 +116,15 @@ def send_welcome_email_on_user_create(sender, instance, created, **kwargs):
 @receiver(post_save, sender=UserProfile)
 def send_initialplan_on_user_create(sender, instance, created, **kwargs):
     if created:
-        initial_plan = get_initial_plan(instance) # Get initial plan
+        #initial_plan = get_initial_plan(instance) # Get initial plan
 
-        instance.initial_plan = initial_plan # Set initial plan
+        #instance.initial_plan = initial_plan # Set initial plan
         instance.save() # Save initial plan
         
         # Send initial plan
         send_mail(
             'Your initial plan',  # subject
-            f'Hi {instance.user.username},\n\n Here is your initial plan: {initial_plan}',  # message
+            f'Hi {instance.user.username},\n\n Here is your initial plan: initial plan',  # message
             'alfiemnurse@gmail.com',  # from email
             [instance.user.email],  # recipient list
         )
