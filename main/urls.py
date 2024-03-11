@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 # import include functioanlity? Ask GPT
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),

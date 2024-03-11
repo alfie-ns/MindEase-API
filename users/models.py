@@ -22,7 +22,7 @@ class UserProfile(models.Model):
         ('improve_posture', 'Improve posture'),
         ('stress_reduction', 'Stress reduction'),
         ('improve_flexibility', 'Improve flexibility'),
-        ('improve_socialising', 'Improve Socialising(change)')
+        #('improve_socialising', 'Improve Socialising(change)')
         ('improve_endurance', 'Improve endurance'),
         ('six_pack', 'Six Pack'),
     ]
