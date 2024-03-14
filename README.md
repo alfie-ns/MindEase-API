@@ -14,7 +14,7 @@ MindEase is an app designed to support individuals with brain injuries, cognitiv
 ### Checklist
 
 - [X] Users/Accounts App
-- [ ] Response App[
+- [ ] Response App(Claud AI, give AI context on user's story'
 - [ ] Reminders/day planner
 
 ## Features
