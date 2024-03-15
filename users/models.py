@@ -58,6 +58,10 @@ class UserProfile(models.Model):
     goal = models.CharField(max_length=20, choices = GOAL_CHOICES, null=True, blank=True)
     activity_level = models.CharField(max_length=20, choices = ACTIVITY_LEVEL_CHOICES, null=True, blank=True)
     determination_level = models.CharField(max_length=20, choices = DETERMINATION_LEVEL_CHOICES, null=True, blank=True)
+
+    # Brain injury fields
+    brain_injury_type = models.CharField(max_length=255, blank=True)
+    brain_injury_severity = models.CharField(max_length=255, blank=True)
     
     initial_plan = models.JSONField(null=True, blank=True)
 
