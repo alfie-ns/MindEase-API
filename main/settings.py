@@ -51,6 +51,13 @@ INSTALLED_APPS = [
     'response'
 ]
 
+# Rest Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  
+    ],
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -137,3 +144,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Mail configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # Sets the backend for sending emails
+EMAIL_HOST = 'smtp.gmail.com' # Sets the SMTP host 
+EMAIL_PORT = 587 #Sets the SMTP port
+EMAIL_USE_TLS = True # set TLS to True
+EMAIL_HOST_USER = 'alfienurse@gmail.com' # Sets email adress for host user
+EMAIL_HOST_PASSWORD = os.getenv('MAIL_PASSWORD') # Sets password for host
