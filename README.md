@@ -18,6 +18,22 @@ MindEase is an app designed to support individuals with brain injuries, cognitiv
 - [ ] Reminders/day planner
 - [ ] Response App 2
 
+### Claude AI thoughts and high-level plan
+
+- [ ] Personalized cognitive training plan: Use an initial assessment to determine the user's cognitive strengths and weaknesses, and create a personalized training plan based on their needs.
+- [ ] Daily brain training exercises: Schedule daily sessions with games and exercises from apps like Lumosity, Elevate, CogniFit, and Peak, focusing on memory, attention, processing speed, and problem-solving.
+- [ ] Therapy sessions: For users with brain injuries, incorporate exercises from apps like Constant Therapy, and allow them to schedule and track their therapy sessions within the app.
+- [ ] N-back training: Implement N-back training exercises directly into your app, allowing users to customize the difficulty level and track their progress over time.
+- [ ] Puzzle game reminders: Set reminders for users to engage in daily puzzle games like Sudoku or crosswords, and provide links to popular puzzle apps or websites.
+- [ ] Mindfulness and meditation: Integrate guided meditation and mindfulness sessions from apps like Headspace or Calm into the user's daily schedule.
+- [ ] Mnemonic technique tutorials: Provide tutorials and practice exercises for various mnemonic techniques, such as the Method of Loci or the Peg System, to help users improve their memory skills.
+- [ ] Physical activity scheduling: Allow users to schedule and track their physical exercise sessions, which can be beneficial for cognitive function. Integrate with popular fitness apps or wearables to make tracking easier.
+- [ ] Progress tracking and rewards: Track the user's progress across various cognitive domains and offer rewards or badges for consistent training and improvement.
+- [ ] AI-powered recommendations: Use artificial intelligence to analyze the user's performance and preferences, and provide personalized recommendations for cognitive training exercises and activities.
+
+
+
+
 ## Features
 
 ### Customisable Reminder System [ ]

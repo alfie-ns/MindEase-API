@@ -1,0 +1,1 @@
+- How can I handle error responses in my Django REST Framework API?

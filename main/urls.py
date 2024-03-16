@@ -16,11 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-# import include functioanlity? Ask GPT
 from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('response/', include('response.urls')),
+    path('reminders/', include('reminders.urls')),
 ]
