@@ -1,0 +1,2 @@
+- [ ] I'm going to use firebase so handle notifications
+- [ ] I need to make API requests to action notifications via Firebase

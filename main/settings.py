@@ -20,9 +20,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Load .env file
 load_dotenv()
 
-# fetch postgresql password
-DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -50,7 +47,14 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'response',
     'reminders',
+    'fcm_django',
 ]
+
+FCM_DJANGO_SETTINGS = { # Firebase Cloud Messaging settings
+    "APP_VERBOSE_NAME": "MindEase",
+    "ONE_DEVICE_PER_USER": True,
+    "DELETE_INACTIVE_DEVICES": True,
+}
 
 # Rest Framework settings
 REST_FRAMEWORK = {
@@ -94,7 +98,8 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+# fetch postgresql password
+DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
