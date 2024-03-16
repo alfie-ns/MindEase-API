@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'response',
     'reminders',
+    'notifications',
     'fcm_django',
+
 ]
 
 FCM_DJANGO_SETTINGS = { # Firebase Cloud Messaging settings
