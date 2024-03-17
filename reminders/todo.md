@@ -1,2 +1,2 @@
 - [ ] I'm going to use firebase to handle notifcations via reminders
-- [ ] I need to make API requests to action a reminder
+- [X] I need to make API requests to action a reminder

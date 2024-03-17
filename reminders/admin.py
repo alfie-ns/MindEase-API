@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Reminder
 
-# Register your models here.
+admin.site.register(Reminder) # Register the Reminder model into the admin site
+

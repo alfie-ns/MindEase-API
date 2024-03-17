@@ -5,12 +5,15 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics
 
-class ReminderList(generics.ListCreateAPIView):
+class Reminders(generics.ListCreateAPIView):
     queryset = Reminder.objects.all()
     serializer_class = ReminderSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     pagination_class = PageNumberPagination
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
     # Pagination is the process of dividing the data into discrete pages.
     # In an API, instead of returning all data at once, we return it in smaller chunks (pages).

@@ -12,7 +12,7 @@ class ReminderViewSet(viewsets.ModelViewSet):
     queryset = Reminder.objects.all()
     serializer_class = ReminderSerializer
 
-class ReminderList(generics.ListCreateAPIView):
+class Reminders(generics.ListCreateAPIView):
     queryset = Reminder.objects.all()
     serializer_class = ReminderSerializer
     authentication_classes = [TokenAuthentication]
