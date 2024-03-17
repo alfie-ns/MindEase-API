@@ -9,6 +9,29 @@ from django.core.mail import send_mail
 
 
 class UserProfile(models.Model):
+    """
+    Represents a user profile in the system.
+
+    Fields:
+    - user: One-to-one relationship with the User model.
+    - name: The name of the user profile.
+    - gender: The gender of the user. Choices are 'male' or 'female'.
+    - age: The age of the user.
+    - weight: The weight of the user.
+    - height: The height of the user.
+    - goal: The fitness goal of the user. Choices include 'bulk', 'lose_weight', 'healthy_happiness', 'improve_posture', 'stress_reduction', 'improve_flexibility', 'improve_endurance', and 'six_pack'.
+    - activity_level: The activity level of the user. Choices include 'sedentary', 'lightly_active', 'moderately_active', 'very_active', and 'extra_active'.
+    - determination_level: The determination level of the user. Choices include 'casual', 'determined', and 'very_determined'.
+    - brain_injury_context: The context of the user's brain injury.
+    - brain_injury_severity: The severity of the user's brain injury.
+    - general_context: Additional general context in JSON format.
+    - initial_plan: The initial plan made by AI when the user registers in JSON format.
+
+    Methods:
+    - __str__: Returns the username of the associated User object.
+    - clean: Validates the choices and fields of the UserProfile object.
+    """
+
     # Choices
     GENDER_CHOICES = [
         ('male', 'Male'),
@@ -22,7 +45,6 @@ class UserProfile(models.Model):
         ('improve_posture', 'Improve posture'),
         ('stress_reduction', 'Stress reduction'),
         ('improve_flexibility', 'Improve flexibility'),
-        #('improve_socialising', 'Improve Socialising(change)')
         ('improve_endurance', 'Improve endurance'),
         ('six_pack', 'Six Pack'),
     ]
@@ -48,29 +70,42 @@ class UserProfile(models.Model):
     ]
     
 
-    # Fields
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, blank=True)
-    gender = models.CharField(max_length=6, choices = GENDER_CHOICES, null=False, blank=False)
+    # Account Fields
+    user = models.OneToOneField(User, on_delete=models.CASCADE) # One-to-one relationship with the User model
+    name = models.CharField(max_length=50, blank=True) # name of the user profile
+
+    # Body Fields
+    gender = models.CharField(max_length=6, choices=GENDER_CHOICES, null=False, blank=False)
     age = models.IntegerField(null=True, blank=True)
     weight = models.IntegerField(null=True, blank=True)
     height = models.IntegerField(null=True, blank=True)
-    goal = models.CharField(max_length=20, choices = GOAL_CHOICES, null=True, blank=True)
-    activity_level = models.CharField(max_length=20, choices = ACTIVITY_LEVEL_CHOICES, null=True, blank=True)
-    determination_level = models.CharField(max_length=20, choices = DETERMINATION_LEVEL_CHOICES, null=True, blank=True)
+
+    # Driven Fields
+    goal = models.CharField(max_length=20, choices=GOAL_CHOICES, null=True, blank=True)
+    activity_level = models.CharField(max_length=20, choices=ACTIVITY_LEVEL_CHOICES, null=True, blank=True)
+    determination_level = models.CharField(max_length=20, choices=DETERMINATION_LEVEL_CHOICES, null=True, blank=True)
 
     # Brain injury fields
-    brain_injury_type = models.CharField(max_length=255, blank=True)
+    brain_injury_context = models.CharField(max_length=255, blank=True)
     brain_injury_severity = models.CharField(max_length=255, blank=True)
+
+    # General Context
+    general_context = models.JSONField(null=True, blank=True)  # Can be empty
     
-    initial_plan = models.JSONField(null=True, blank=True)
+    # Initial Plan made by AI when user registers
+    initial_plan = models.JSONField(null=True, blank=True)  # Starts off as empty
 
     # Methods
     def __str__(self):
         return self.user.username
     
     def clean(self):
-        # Validate choices
+        """
+        Validates the choices and fields of the UserProfile object.
+
+        Raises:
+        - ValidationError: If any of the choices or fields are invalid.
+        """
         if self.gender not in dict(UserProfile.GENDER_CHOICES):
             raise ValidationError({
                 "gender": "Invalid choice. Valid options are: " + ', '.join([f"{t[0]} ({t[1]})" for t in UserProfile.GENDER_CHOICES])
