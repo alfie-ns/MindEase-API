@@ -15,8 +15,11 @@ MindEase is an app designed to support individuals with brain injuries, cognitiv
 - [X] Users/Accounts App
 - [X] Profiles request
 - [X] Response App(Claud AI, give AI context on user's story'
-- [ ] Reminders/day planner
-- [ ] Response App 2
+- [X] Reminders 1
+- [ ] Reminders 2 - Make calendar-like alerts, set alerts like google calendar
+- [ ] Personalized cognitive training plan: Use an initial assessment to determine the user's cognitive strengths and weaknesses, and create a personalized training plan based on their needs.
+- [ ] Response App 2 - Make GPT API, then feed it user's data
+- [ ] Personalized cognitive training plan 2 - N-back exercises, 3 will allow difficulty customisation
 
 ### Claude AI thoughts and high-level plan
 
@@ -30,9 +33,6 @@ MindEase is an app designed to support individuals with brain injuries, cognitiv
 - [ ] Physical activity scheduling: Allow users to schedule and track their physical exercise sessions, which can be beneficial for cognitive function. Integrate with popular fitness apps or wearables to make tracking easier.
 - [ ] Progress tracking and rewards: Track the user's progress across various cognitive domains and offer rewards or badges for consistent training and improvement.
 - [ ] AI-powered recommendations: Use artificial intelligence to analyze the user's performance and preferences, and provide personalized recommendations for cognitive training exercises and activities.
-
-
-
 
 ## Features
 
