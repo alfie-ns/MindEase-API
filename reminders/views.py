@@ -1,5 +1,5 @@
 from .models import Reminder
-from .serializers import ReminderSerializer
+from .serializers import ReminderSerializer, AlertSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics

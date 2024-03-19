@@ -84,6 +84,6 @@ class Alert(models.Model):
     ]
     reminder = models.ForeignKey(Reminder, on_delete=models.CASCADE)
     offset = models.PositiveIntegerField()
-    unit = models.CharField(choices=REMINDER_CHOICES, default='minutes', max_length=10)
+    unit = models.CharField(choices=REMINDER_CHOICES, default='seconds', max_length=10)
 
 
