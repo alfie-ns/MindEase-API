@@ -151,8 +151,8 @@ def send_welcome_email_on_user_create(sender, instance, created, **kwargs):
         user_profile = UserProfile.objects.get(user=user)
         # Send welcome email
         send_mail(
-        'Welcome to drFit!',  # subject
-        f"""Hi {user_profile.name},\n\n Welcome to MindEase! You are smart to come onboard.""",  # message
+        'Welcome to MindEase!',  # subject
+        f"""Hi {user_profile.name},\n\n Welcome to MindEase! You are smart to come onboard! We are going to show you how to reach your prime""",  # message
         'alfiemnurse@example.com',  # from
         [instance.user.email],  # recipient list
         fail_silently=False
