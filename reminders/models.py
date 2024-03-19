@@ -29,7 +29,7 @@ class Reminder(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     severity = models.IntegerField(choices=SEVERITY_CHOICES, default=1)
-    category = models.CharField(max_length=200, choices=CATEGORY_CHOICES, default='other')
+    category = models.CharField(choices=CATEGORY_CHOICES, default='other')
     time = models.DateTimeField()
 
     def save(self, *args, **kwargs):
@@ -56,11 +56,34 @@ class Reminder(models.Model):
                 self.severity = 1
             else:
                 self.severity = 1
+
         super().save(*args, **kwargs)
+
+        # create alerts for the reminder
+        alerts = [
+            (1, 'minutes'),  # example alert 1: 1 minute before the reminder
+            (1, 'hours'),    # example alert 2: 1 hour before the reminder
+            (1, 'days'),     # example alert 3: 1 day before the reminder
+        ]
+
+        for offset, unit in alerts:
+            Alert.objects.create(reminder=self, offset=offset, unit=unit)
 
         
 
         # send notification to user
         # send_notification(self.user, self.title)
 
-    
+class Alert(models.Model):
+    REMINDER_CHOICES = [
+        ('seconds', 'Seconds'),
+        ('minutes', 'Minutes'),
+        ('hours', 'Hours'),
+        ('days', 'Days'),
+        ('weeks', 'Weeks'),
+    ]
+    reminder = models.ForeignKey(Reminder, on_delete=models.CASCADE)
+    offset = models.PositiveIntegerField()
+    unit = models.CharField(choices=REMINDER_CHOICES, default='minutes', max_length=10)
+
+
