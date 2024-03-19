@@ -9,14 +9,12 @@ load_dotenv() # Load the .env file
    This file contains the code to generate an initial plan for the user based on their profile information; 
    it uses the OpenAI API to generate the plan. The function generate_initial_plan takes the user_profile as
    input and generates an initial plan based on the user's profile information. The function uses the OpenAI
-   ChatCompletion API to generate the plan.
-   
+   ChatCompletion API to generate the plan. 
 '''
 
 def generate_initial_plan(user_profile):
     
-    #openai.api_key = os.getenv("OPENAI_API_KEY") # Extract -> Set API key
-    openai.api_key = "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"
+    openai.api_key = os.getenv("OPENAI_API_KEY") # Extract -> Set API key
 
     prompt = f"""
 
