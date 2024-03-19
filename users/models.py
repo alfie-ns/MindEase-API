@@ -4,7 +4,8 @@ from django.core.exceptions import ValidationError
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.mail import send_mail
-# from response.response_handlers.get_initial_plan import get_initial_plan
+from users.initial_plan import generate_initial_plan
+
 
 
 
@@ -22,6 +23,7 @@ class UserProfile(models.Model):
     - goal: The fitness goal of the user. Choices include 'bulk', 'lose_weight', 'healthy_happiness', 'improve_posture', 'stress_reduction', 'improve_flexibility', 'improve_endurance', and 'six_pack'.
     - activity_level: The activity level of the user. Choices include 'sedentary', 'lightly_active', 'moderately_active', 'very_active', and 'extra_active'.
     - determination_level: The determination level of the user. Choices include 'casual', 'determined', and 'very_determined'.
+    - Strengths and Weaknesses: The cognitive strengths and weaknesses of the user.
     - brain_injury_context: The context of the user's brain injury.
     - brain_injury_severity: The severity of the user's brain injury.
     - general_context: Additional general context in JSON format.
@@ -91,6 +93,11 @@ class UserProfile(models.Model):
 
     # General Context
     general_context = models.JSONField(null=True, blank=True)  # Can be empty
+
+    # Strengths and Weaknesses
+    strengths = models.JSONField(null=True, blank=True)  # Can be empty
+    weaknesses = models.JSONField(null=True, blank=True)  # Can be empty
+
     
     # Initial Plan made by AI when user registers
     initial_plan = models.JSONField(null=True, blank=True)  # Starts off as empty
@@ -155,15 +162,14 @@ def send_welcome_email_on_user_create(sender, instance, created, **kwargs):
 @receiver(post_save, sender=UserProfile)
 def send_initialplan_on_user_create(sender, instance, created, **kwargs):
     if created:
-        #initial_plan = get_initial_plan(instance) # Get initial plan
+        initial_plan = generate_initial_plan(instance)  # Generate the initial plan
 
-        #instance.initial_plan = initial_plan # Set initial plan
-        instance.save() # Save initial plan
-        
-        # Send initial plan
-        send_mail(
-            'Your initial plan',  # subject
-            f'Hi {instance.user.username},\n\n Here is your initial plan: initial plan',  # message
-            'alfiemnurse@gmail.com',  # from email
-            [instance.user.email],  # recipient list
-        )
+        instance.initial_plan = initial_plan  # Set the initial plan
+        instance.save()  # Save the initial plan
+
+        # Send the initial plan via email
+        subject = 'Your Initial Plan'
+        message = f'Hi {instance.user.username},\n\nHere is your initial plan:\n\n{initial_plan}'
+        from_email = 'alfiemnurse@gmail.com'
+        recipient_list = [instance.user.email]
+        send_mail(subject, message, from_email, recipient_list)
