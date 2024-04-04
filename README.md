@@ -5,12 +5,11 @@
 MindEase is an app designed to support individuals with brain injuries, cognitive challenges or just lazy people. By integrating various functionalities, MindEase aims to assist users in their daily lives, offering tools for cognitive rehabilitation, daily planning, and emotional well-being. Here's an overview of the key features MindEase offers:
 
 - [ ] Summarisation tools for easier understanding of various contents:
+
   - [ ] YouTube summaries
-  - [ ] Article summaries 
+  - [ ] Article summaries
   - [ ] Book summaries
   - [ ] Podcast summaries
-
-
 - [ ] Customizable reminders for all types of tasks, from basic to complex.
 - [ ] Cognitive games to boost brain function, with progress tracking.
 - [ ] Daily planning capabilities and mood tracking for emotional health.
@@ -67,10 +66,7 @@ MindEase is an app designed to support individuals with brain injuries, cognitiv
 9. [ ] Relationships/Social Connections
 1. [ ] Fitness/Health
 1. [ ] Financial Management
-1. [ ] Personal Interests/Entertainment
-1. [ ] Other
-
-- [ ] Features voice input for easy setup and categorization options for better organization.
+1. [ ] Personal Interests/EntertainmeFeatures voice input for easy setup and categorization options for better organization.
 
 ### Cognitive Games and Exercises [ ]
 
