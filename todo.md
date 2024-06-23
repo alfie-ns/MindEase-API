@@ -1,0 +1,4 @@
+- [ ] Make run.sh proceed successfully
+- [ ] Finish off notifications django app
+- [ ] Connect notifications to the front end
+- [ ] Connect firebase to API then API->APP
